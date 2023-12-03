@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>L's Blog | L's Blog</title><meta name="author" content="kidoom"><meta name="copyright" content="kidoom"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="交换相邻链表)给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。 示例1：  12输入：head &#x3D; [1,2,3,4]输出：[2,1,4,3] 这道题 要理解 相邻链表的交换条件以及cur节点遍历整个链表的条件  如果是奇数链表 则当链表的current的下下个next指向为NULL,则遍历结束 如果是偶数链表 则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="L&#39;s Blog">
+<meta property="og:url" content="https://kidoom.github.io/2023/11/29/%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:site_name" content="L&#39;s Blog">
+<meta property="og:description" content="交换相邻链表)给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。 示例1：  12输入：head &#x3D; [1,2,3,4]输出：[2,1,4,3] 这道题 要理解 相邻链表的交换条件以及cur节点遍历整个链表的条件  如果是奇数链表 则当链表的current的下下个next指向为NULL,则遍历结束 如果是偶数链表 则">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-29T08:53:06.106Z">
+<meta property="article:modified_time" content="2023-11-30T07:45:38.938Z">
+<meta property="article:author" content="kidoom">
+<meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kidoom.github.io/2023/11/29/%E9%93%BE%E8%A1%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: [object Object]
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'L\'s Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-30 15:45:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://blog-1314366587.cos.ap-nanjing.myqcloud.com/blog%2FDTicon.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">L's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-29T08:53:06.106Z" title="Created 2023-11-29 16:53:06">2023-11-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-11-30T07:45:38.938Z" title="Updated 2023-11-30 15:45:38">2023-11-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="交换相邻链表"><a href="#交换相邻链表" class="headerlink" title="交换相邻链表)"></a><a href="[24. 两两交换链表中的节点 - 力扣（LeetCode）](https://leetcode.cn/problems/swap-nodes-in-pairs/">交换相邻链表</a>)</h2><p>给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。</p>
+<p>示例1：</p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/03/swap_ex1.jpg" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2,3,4]</span><br><span class="line">输出：[2,1,4,3]</span><br></pre></td></tr></table></figure>
+<p>这道题 要理解 相邻链表的<strong>交换条件</strong>以及cur节点遍历整个链表的<strong>条件</strong></p>
+<ul>
+<li>如果是奇数链表 则当链表的current的下下个next指向为NULL,则遍历结束</li>
+<li>如果是偶数链表 则当链表的current的下个next指向为NULL 则遍历结束</li>
+</ul>
+<p>对于第一次遍历 在设置虚拟头节点之后 我们一共三个步骤</p>
+<ol>
+<li><p>将虚拟头节点指向第二个节点值</p>
+</li>
+<li><p>交换第一和第二节点值（<strong>交换相邻节点值）</strong></p>
+</li>
+<li><p>交换后指向第三个节点</p>
+<p>如此循环，因为每个元素只被操作一次 则时间复杂度为O(n)</p>
+</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * type ListNode struct &#123;</span></span><br><span class="line"><span class="comment"> *     Val int</span></span><br><span class="line"><span class="comment"> *     Next *ListNode</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapPairs</span><span class="params">(head *ListNode)</span></span> *ListNode &#123;</span><br><span class="line">    dummyHead := &amp;ListNode&#123;</span><br><span class="line">        Next: head,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cur := dummyHead</span><br><span class="line">    <span class="keyword">for</span> cur.Next!=<span class="literal">nil</span> &amp;&amp; cur.Next.Next!=<span class="literal">nil</span>&#123;</span><br><span class="line">        </span><br><span class="line">        temp := cur.Next <span class="comment">//临时节点 保存前一个节点</span></span><br><span class="line">        temp1 := cur.Next.Next.Next</span><br><span class="line">        cur.Next = cur.Next.Next</span><br><span class="line">        cur.Next.Next = temp</span><br><span class="line">        temp.Next=temp1</span><br><span class="line">        </span><br><span class="line">        cur = cur.Next.Next</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummyHead.Next</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="删除链表的倒数第-N-个结点"><a href="#删除链表的倒数第-N-个结点" class="headerlink" title="删除链表的倒数第 N 个结点)"></a><a href="[19. 删除链表的倒数第 N 个结点 - 力扣（LeetCode）](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/">删除链表的倒数第 N 个结点</a>)</h2><p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg" alt=""></p>
+<ul>
+<li><h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><ul>
+<li><p>先获取链表的长度 <strong>length</strong>  然后倒数第n个节点就是 <strong>length-n+1</strong>  的长度</p>
+</li>
+<li><p>然后遍历链表到<strong>length-n+1</strong>  跳过节点 即可</p>
+</li>
+<li><p>```go<br>func getLength(head *ListNode)(length int){</p>
+<pre><code>for head!=nil&#123;
+    head = head.Next
+    length ++
+&#125;
+return 
+</code></pre><p>}//获取链表长度</p>
+<p>func removeNthFromEnd(head <em>ListNode, n int) </em>ListNode {</p>
+<pre><code>length := getLength(head)
+dummy := &amp;ListNode&#123;0, head&#125;
+cur := dummy
+for i := 0; i &lt; length-n; i++ &#123;
+    cur = cur.Next
+&#125;
+cur.Next = cur.Next.Next
+return dummy.Next
+</code></pre><p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    对于第一种方法，其实相当于遍历了两遍链表 时间复杂度是O(n)</span><br><span class="line"></span><br><span class="line">- ### 双指针</span><br><span class="line"></span><br><span class="line">  - 设置两个指针 且快慢指针之间相差的节点数为n,那么对于快指针来讲说 当他遍历到链表末尾的时候，慢指针刚好遍历到倒数第n个节点的位置</span><br><span class="line">  - &lt;img src=&quot;https://assets.leetcode-cn.com/solution-static/19/p3.png&quot; style=&quot;zoom: 67%;&quot; /&gt;</span><br><span class="line">  - 对于整个模拟过程来说 ，首先初始是**second**指针位于dummy节点，**first**节点位于head节点位置，</span><br><span class="line">  - **对first指针先遍历到n**这样 快指针和慢指针之间相差了n个节点</span><br><span class="line">  - 然后对慢指针进行遍历 遍历条件是慢指针遍历的同时，快指针跟着遍历，这样就一直相差n个节点 直到快指针遍历链表结束</span><br><span class="line"></span><br><span class="line">```go</span><br><span class="line">func removeNthFromEnd(head *ListNode, n int) *ListNode &#123;</span><br><span class="line">    dummy := &amp;ListNode&#123;0, head&#125;</span><br><span class="line">    first, second := head, dummy</span><br><span class="line">    for i := 0; i &lt; n; i++ &#123;</span><br><span class="line">        first = first.Next</span><br><span class="line">    &#125;</span><br><span class="line">    for ; first != nil; first = first.Next &#123;</span><br><span class="line">        second = second.Next</span><br><span class="line">    &#125;</span><br><span class="line">    second.Next = second.Next.Next</span><br><span class="line">    return dummy.Next</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表)"></a><a href="[142. 环形链表 II - 力扣（LeetCode）](https://leetcode.cn/problems/linked-list-cycle-ii/description/">环形链表</a>)</h2><p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况</p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" alt=""></p>
+<ul>
+<li><h3 id="第一种方法-1"><a href="#第一种方法-1" class="headerlink" title="第一种方法"></a>第一种方法</h3><ul>
+<li><p>哈希表存取 直接遍历整个链表 </p>
+</li>
+<li><p>判断出相同元素出现在链表中 则证明链表成环</p>
+</li>
+<li><p>```go<br>func detectCycle(head <em>ListNode) </em>ListNode {</p>
+<pre><code>seen := map[*ListNode]struct&#123;&#125;&#123;&#125;
+for head != nil &#123;
+    if _, ok := seen[head]; ok &#123;
+        return head
+    &#125;
+    seen[head] = struct&#123;&#125;&#123;&#125;
+    head = head.Next
+&#125;
+return nil
+</code></pre><p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ### 第二种方法（双指针）</span><br><span class="line"></span><br><span class="line">  - **首先要判断链表中是否有环**</span><br><span class="line"></span><br><span class="line">    - 使用快慢指针 ，当快慢指针相遇时则代表链表中有环</span><br><span class="line">    - 对于快指针 **fast** 设定为速度为**两个节点**，对于慢指针 **slow** 设定速度为**一个节点** ，则快慢指针的速度差为 **一个节点** 那么当指针遍历链表的时候，一定是快指针先入环，然后慢指针后入，此时 **相当于快指针以一个节点的速度 追赶慢指针**  直到相遇</span><br><span class="line"></span><br><span class="line">  - **怎样判定环的入口**</span><br><span class="line"></span><br><span class="line">    - &lt;img src=&quot;https://code-thinking-1253855093.file.myqcloud.com/pics/20220925103433.png&quot; style=&quot;zoom: 50%;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    - 那么相遇时： slow指针走过的节点数为: `x + y`， fast指针走过的节点数：`x + y + n (y + z)`，n为fast指针在环内走了n圈才遇到slow指针， （y+z）为 一圈内节点的个数A。</span><br><span class="line"></span><br><span class="line">      因为fast指针是一步走两个节点，slow指针一步走一个节点， 所以 fast指针走过的节点数 = slow指针走过的节点数 * 2：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>  (x + y) * 2 = x + y + n (y + z)</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  两边消掉一个（x+y）: `x + y = n (y + z)`</span><br><span class="line"></span><br><span class="line">  因为要找环形的入口，那么要求的是x，因为x表示 头结点到 环形入口节点的的距离。</span><br><span class="line"></span><br><span class="line">  所以要求x ，将x单独放在左面：`x = n (y + z) - y` ,</span><br><span class="line"></span><br><span class="line">  再从n(y+z)中提出一个 （y+z）来，整理公式之后为如下公式：`x = (n - 1) (y + z) + z` 注意这里n一定是大于等于1的，因为 fast指针至少要多走一圈才能相遇slow指针。</span><br><span class="line"></span><br><span class="line">- 当 n为1的时候，公式就化解为 `x = z`，</span><br><span class="line"></span><br><span class="line">  这就意味着，**从头结点出发一个指针，从相遇节点 也出发一个指针，这两个指针每次只走一个节点， 那么当这两个指针相遇的时候就是 环形入口的节点**。</span><br><span class="line"></span><br><span class="line">  也就是在相遇节点处，定义一个指针**index1**，在头结点处定一个指针**index2**。</span><br><span class="line"></span><br><span class="line">  让index1和index2同时移动，每次移动一个节点， 那么他们相遇的地方就是 环形入口的节点。</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  ```go</span><br><span class="line">  func detectCycle(head *ListNode) *ListNode &#123;</span><br><span class="line">      fast := head //设置快指针</span><br><span class="line">      slow := head//设置慢指针</span><br><span class="line">      for fast != nil &amp;&amp; fast.Next != nil &#123;</span><br><span class="line">          fast = fast.Next.Next //快指针向前遍历</span><br><span class="line">          slow = slow.Next//慢指针向前遍历</span><br><span class="line">          if fast == slow &#123;// 快慢指针相遇条件</span><br><span class="line">              index1 := fast</span><br><span class="line">              index2 := head</span><br><span class="line">              for index1 != index2&#123;  // index 指针 同时移动 当相遇时 即是环的入口</span><br><span class="line">                  index1 = index1.Next</span><br><span class="line">                  index2 = index2.Next</span><br><span class="line">              &#125;</span><br><span class="line">              return index1 //返回环的如果</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return nil //如果不存在，就返回nil</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>​            </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://kidoom.github.io">kidoom</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kidoom.github.io/2023/11/29/%E9%93%BE%E8%A1%A8/">https://kidoom.github.io/2023/11/29/%E9%93%BE%E8%A1%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/01/goroutine%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9E%8B%E5%92%8C%E8%B0%83%E5%BA%A6%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">goroutine 基本模型和调度设计策略</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/16/%E6%95%B0%E7%BB%84/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://blog-1314366587.cos.ap-nanjing.myqcloud.com/blog%2FDTicon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">kidoom</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kidoom"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kidoom?tab=repositories" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3416888646@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">记录学习历程</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E7%9B%B8%E9%82%BB%E9%93%BE%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">交换相邻链表)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-N-%E4%B8%AA%E7%BB%93%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">删除链表的倒数第 N 个结点)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">第一种方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">环形链表)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95-1"><span class="toc-number">3.1.</span> <span class="toc-text">第一种方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/03/go-IM/" title="go-IMserver">go-IMserver</a><time datetime="2023-12-02T16:00:00.000Z" title="Created 2023-12-03 00:00:00">2023-12-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/01/goroutine%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9E%8B%E5%92%8C%E8%B0%83%E5%BA%A6%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5/" title="goroutine 基本模型和调度设计策略">goroutine 基本模型和调度设计策略</a><time datetime="2023-11-30T16:00:00.000Z" title="Created 2023-12-01 00:00:00">2023-12-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/29/%E9%93%BE%E8%A1%A8/" title="No title">No title</a><time datetime="2023-11-29T08:53:06.106Z" title="Created 2023-11-29 16:53:06">2023-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/16/%E6%95%B0%E7%BB%84/" title="No title">No title</a><time datetime="2023-11-16T14:31:11.231Z" title="Created 2023-11-16 22:31:11">2023-11-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/14/%5B%E5%A4%A9%E6%B1%A0%5D%E5%85%A8%E7%90%83%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6AI%E6%8C%91%E6%88%98%E8%B5%9B/" title="天池全球智能汽车AI挑战赛实践">天池全球智能汽车AI挑战赛实践</a><time datetime="2023-11-13T16:00:00.000Z" title="Created 2023-11-14 00:00:00">2023-11-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By kidoom</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,0" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
